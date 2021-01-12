@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Instaflix Alejandro</string>
+    <string name="accept">Aceptar</string>
+    <string name="error_conectivity_title">Connection issues</string>
+    <string name="error_conectivity_message">It seems there are problems with internet connectivity, check your connection and try again</string>
+    <string name="error_conectivity_button_text">Retry</string>
+    <string name="series">Series</string>
+    <string name="movies">Movies</string>
+    <string name="empty_content">Empty content</string>
+    <string name="home_btn">Home</string>
+    <string name="search_btn">Search</string>
+    <string name="coming_soon_btn">Coming Soon</string>
+    <string name="downloads_btn">Downloads</string>
+    <string name="more_btn">More</string>
+    <string name="popular">Popular</string>
+    <string name="on_air">On air</string>
+    <string name="top">Top</string>
+    <string name="calification">Calification:</string>
+    <string name="duration">Duration:</string>
+    <string name="min">min</string>
+
+</resources>

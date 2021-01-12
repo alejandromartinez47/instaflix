@@ -1,0 +1,174 @@
+ext.deps = [:]
+def versions = [:]
+deps.instaflix = '"https://api.themoviedb.org/"'
+deps.apikey = '"b0b9c55e7db248ea882fed220193878c"'
+deps.urlImages = '"https://image.tmdb.org/t/p/w500"'
+//test
+versions.mockito = "2.25.0"
+versions.mockito_android = "2.25.0"
+versions.expresso = "3.1.0"
+versions.androidx_test = "1.1.0"
+
+
+//android support
+versions.support = "1.0.0"
+versions.support_alpha = "1.1.0-alpha07"
+versions.fragment = "1.1.0-alpha09"
+versions.android_gradle_plugin = "3.5.3"
+versions.constraint_layout = "2.0.0-alpha3"
+versions.emoji = "1.0.0-alpha1"
+versions.annotation = "1.0.1"
+versions.activity_ktx = "1.0.0-alpha01"
+versions.appcompat = "1.1.0-rc01"
+versions.design = "28.0.0"
+versions.supportlegacy = "1.0.0"
+//parcel
+versions.parceler = "1.1.12"
+//epoxy
+versions.epoxy = "3.7.0"
+//retrofit
+versions.retrofit = "2.6.1"
+versions.okhttp_logging_interceptor = "3.11.0"
+versions.calladapter = "0.9.2"
+//arch components
+versions.arch_core = "2.0.1"
+versions.lifecycle = "2.0.0"
+versions.paging = "2.1.0-rc01"
+//kotlin
+versions.kotlin = "1.3.72"
+versions.core_ktx = "1.0.2"
+versions.anko_version = "0.10.8"
+versions.coroutines = "1.3.0-M1"
+versions.coroutines_core = "1.1.1"
+//dagger
+versions.dagger = "2.16"
+//glide
+versions.picasso = "2.5.2"
+//multidex
+versions.multidex = "2.0.1"
+//gson
+versions.gson = "2.8.5"
+//volley
+versions.volley = "1.1.0"
+//databinding
+versions.databindingcompiler = "3.0.0"
+//pull to refresh
+versions.pulltorefresh = "1.0.0"
+//preferences
+versions.preferences = "1.1.1"
+
+ext.versions = versions
+
+def support = [:]
+support.annotations = "androidx.annotation:annotation:$versions.annotation"
+support.app_compat = "androidx.appcompat:appcompat:$versions.appcompat"
+support.recyclerview = "androidx.recyclerview:recyclerview:$versions.support"
+support.cardview = "androidx.cardview:cardview:$versions.support"
+support.design = "com.google.android.material:material:$versions.support_alpha"
+support.v4 = "androidx.legacy:legacy-support-v4:$versions.support"
+support.core_ktx = "androidx.core:core-ktx:$versions.core_ktx"
+support.fragment_runtime = "androidx.fragment:fragment:$versions.fragment"
+support.fragment_runtime_ktx = "androidx.fragment:fragment-ktx:$versions.fragment"
+support.paging_ktx = "androidx.paging:paging-runtime-ktx:$versions.paging"
+support.constraint_layout = "androidx.constraintlayout:constraintlayout:$versions.constraint_layout"
+support.multidex = "androidx.multidex:multidex:$versions.multidex"
+support.support_emoji = "androidx.emoji:emoji-appcompat:$versions.emoji"
+support.support_emoji_bundled = "androidx.emoji:emoji-bundled:$versions.emoji"
+support.activity_ktx = "androidx.activity:activity-ktx:$versions.activity_ktx"
+deps.support = support
+
+def lifecycle = [:]
+lifecycle.runtime = "androidx.lifecycle:lifecycle-runtime:$versions.lifecycle"
+lifecycle.extensions = "androidx.lifecycle:lifecycle-extensions:$versions.lifecycle"
+lifecycle.java8 = "androidx.lifecycle:lifecycle-common-java8:$versions.lifecycle"
+lifecycle.compiler = "androidx.lifecycle:lifecycle-compiler:$versions.lifecycle"
+lifecycle.viewmodel_ktx = "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.lifecycle"
+deps.lifecycle = lifecycle
+
+def arch_core = [:]
+arch_core.runtime = "androidx.arch.core:core-runtime:$versions.arch_core"
+arch_core.testing = "androidx.arch.core:core-testing:$versions.arch_core"
+deps.arch_core = arch_core
+
+def dynamicform = [:]
+dynamicform.runtime = ":form"
+deps.dynamicform = dynamicform
+
+def retrofit = [:]
+retrofit.runtime = "com.squareup.retrofit2:retrofit:$versions.retrofit"
+retrofit.gson_converter = "com.squareup.retrofit2:converter-gson:$versions.retrofit"
+retrofit.okhttp_logging_interceptor = "com.squareup.okhttp3:logging-interceptor:$versions.okhttp_logging_interceptor"
+retrofit.gson = "com.google.code.gson:gson:$versions.gson"
+retrofit.dns = "dnsjava:dnsjava:2.1.7"
+deps.retrofit = retrofit
+
+def dagger = [:]
+dagger.runtime = "com.google.dagger:dagger:$versions.dagger"
+dagger.android = "com.google.dagger:dagger-android:$versions.dagger"
+dagger.android_support = "com.google.dagger:dagger-android-support:$versions.dagger"
+dagger.compiler = "com.google.dagger:dagger-compiler:$versions.dagger"
+dagger.android_support_compiler = "com.google.dagger:dagger-android-processor:$versions.dagger"
+deps.dagger = dagger
+
+def kotlin = [:]
+kotlin.stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$versions.kotlin"
+kotlin.test = "org.jetbrains.kotlin:kotlin-test-junit:$versions.kotlin"
+kotlin.plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
+kotlin.anko = "org.jetbrains.anko:anko:$versions.anko_version"
+kotlin.anko_commons = "org.jetbrains.anko:anko-commons:$versions.anko_version"
+kotlin.snackbar = "org.jetbrains.anko:anko-design:$versions.anko_version"
+kotlin.coroutines_android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutines"
+kotlin.coroutines_core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.coroutines_core"
+kotlin.reflect = "org.jetbrains.kotlin:kotlin-reflect:$versions.kotlin"
+deps.kotlin = kotlin
+
+def test = [:]
+test.core = "org.mockito:mockito-core:$versions.mockito"
+test.android = "org.mockito:mockito-android:$versions.mockito_android"
+test.mock = "com.squareup.retrofit2:retrofit-mock:$versions.retrofit"
+test.espresso_core = "androidx.test.espresso:espresso-core:$versions.expresso"
+test.espresso = "androidx.test.espresso:espresso-contrib:$versions.expresso"
+test.junit_ktx = "androidx.test.ext:junit-ktx:$versions.androidx_test"
+test.junit_runner = "androidx.test:runner:$versions.androidx_test"
+test.junit_core = "androidx.test:core:$versions.androidx_test"
+deps.test = test
+
+def volley = [:]
+volley.http = "com.android.volley:volley:$versions.volley"
+deps.volley = volley
+
+def parcel = [:]
+parcel.parceler_api = "org.parceler:parceler-api:$versions.parceler"
+parcel.parceler = "org.parceler:parceler:$versions.parceler"
+deps.parcel = parcel
+
+def preferences = [:]
+preferences.settingspreferences = "androidx.preference:preference-ktx:$versions.preferences"
+deps.prefs = preferences
+
+deps.android_gradle_plugin = "com.android.tools.build:gradle:$versions.android_gradle_plugin"
+
+
+def ui = [:]
+ui.epoxy = "com.airbnb.android:epoxy:$versions.epoxy"
+ui.epoxycompiler = "com.airbnb.android:epoxy-processor:$versions.epoxy"
+ui.databinding = "com.android.databinding:compiler:$versions.databindingcompiler"
+ui.picasso = "com.squareup.picasso:picasso:$versions.picasso"
+
+deps.ui = ui
+
+ext.deps = deps
+
+static def addRepos(RepositoryHandler handler) {
+    handler.google()
+    handler.jcenter()
+    handler.mavenCentral()
+    handler.maven { url 'https://maven.google.com' }
+    handler.maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+    handler.maven { url 'https://jitpack.io' }
+    handler.maven { url 'https://maven.fabric.io/public' }
+    handler.maven { url 'https://plugins.gradle.org/m2/'}
+    handler.maven { url 'https://sdk.uxcam.com/android/' }
+}
+ext.addRepos = this.&addRepos
+

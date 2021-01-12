@@ -1,0 +1,180 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.1"
+    defaultConfig {
+        applicationId "co.instaflix"
+        minSdkVersion 17
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+        vectorDrawables {
+            useSupportLibrary = true
+        }
+        flavorDimensions "version"
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/java'
+        main.java.srcDirs += [file("$buildDir/generated/source/kapt/main")]
+        test.java.srcDirs += 'src/test/java'
+        androidTest.java.srcDirs += 'src/androidTest/java'
+    }
+
+    packagingOptions {
+        exclude 'LICENSE'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/notice'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/license'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/rxjava.properties'
+    }
+
+    dexOptions {
+        incremental false
+    }
+
+    kapt {
+        generateStubs = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    productFlavors {
+        debuger {
+            buildConfigField 'String', 'BASE_URL', deps.instaflix
+            buildConfigField 'String', 'API_KEY', deps.apikey
+            buildConfigField 'String', 'URL_IMAGES', deps.urlImages
+
+
+        }
+    }
+}
+
+androidExtensions {
+    experimental = true
+}
+
+kapt {
+    generateStubs = true
+    correctErrorTypes = true
+}
+
+dependencies {
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+
+    //support library
+    kapt deps.support.annotations
+    implementation deps.support.app_compat
+    implementation deps.support.recyclerview
+    implementation deps.support.cardview
+    implementation deps.support.design
+    implementation deps.support.v4
+    implementation deps.support.core_ktx
+    implementation deps.support.fragment_runtime
+    implementation deps.support.fragment_runtime_ktx
+    implementation deps.support.paging_ktx
+    implementation deps.support.constraint_layout
+    implementation deps.support.multidex
+    implementation deps.support.support_emoji
+    implementation deps.support.support_emoji_bundled
+    implementation deps.support.activity_ktx
+
+    //arch code
+    implementation deps.arch_core.runtime
+    implementation deps.arch_core.testing
+
+    //lifecycle
+    implementation deps.lifecycle.runtime
+    implementation deps.lifecycle.extensions
+    implementation deps.lifecycle.java8
+    implementation deps.lifecycle.viewmodel_ktx
+    kapt deps.lifecycle.compiler
+
+    //dagger
+    implementation deps.dagger.runtime
+    implementation deps.dagger.android
+    implementation deps.dagger.android_support
+    kapt deps.dagger.compiler
+    kapt deps.dagger.android_support_compiler
+
+
+    //kotlin
+    implementation deps.kotlin.stdlib
+    implementation deps.kotlin.anko
+    implementation deps.kotlin.anko_commons
+    implementation deps.kotlin.coroutines_android
+    implementation deps.kotlin.coroutines_core
+    implementation deps.kotlin.reflect
+    implementation deps.kotlin.snackbar
+
+    //testing
+    implementation deps.test.core
+    implementation deps.test.android
+    implementation deps.test.mock
+    implementation deps.kotlin.test
+
+    androidTestImplementation deps.test.espresso_core
+    androidTestImplementation deps.test.espresso
+    androidTestImplementation deps.test.junit_ktx
+    androidTestImplementation deps.test.junit_runner
+    androidTestImplementation deps.test.junit_core
+
+    //retrofit
+    implementation deps.retrofit.runtime
+    implementation deps.retrofit.gson_converter
+    implementation deps.retrofit.okhttp_logging_interceptor
+    implementation deps.retrofit.gson
+    implementation deps.retrofit.dns
+
+    //parcel
+    implementation deps.parcel.parceler_api
+    kapt deps.parcel.parceler
+
+    //volley
+    implementation deps.volley.http
+    //ui
+
+    kapt deps.ui.epoxycompiler
+    kapt deps.ui.databinding
+    implementation deps.ui.epoxy
+    kapt deps.ui.epoxycompiler
+    implementation deps.ui.picasso
+
+    //preferences
+    implementation deps.prefs.settingspreferences
+
+}

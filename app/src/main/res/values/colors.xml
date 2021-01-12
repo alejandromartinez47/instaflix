@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#292828</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#6A6A6A</color>
+
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+
+    <color name="grey_medium">#E8202020</color>
+    <color name="item_selected">#ffffff</color>
+    <color name="item_unselected">#50ffffff</color>
+    <color name="navigation_background">#171717</color>
+</resources>
